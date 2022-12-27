@@ -1,5 +1,10 @@
 import React from "react";
 
 export const EventViewHero = ({ event }) => {
-  return <div>{event.name}</div>;
+  return (
+    <div>
+      <div>{event.name}</div>
+      <img id="eventPhoto" src={event.imgURL} />
+    </div>
+  );
 };
