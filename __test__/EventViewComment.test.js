@@ -38,4 +38,9 @@ describe("Comment Section", () => {
     render(<EventViewComment />);
     expect(eventViewComment()).not.toBeNull();
   });
+  it("renders a comment with a first name", () => {
+    const comment = { firstName: "Ashley" };
+    render(<EventViewComment comment={comment} />);
+    expect(appointmentTable()).toContainText("Ashley");
+  });
 });
