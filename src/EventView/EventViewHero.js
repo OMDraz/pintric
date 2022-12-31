@@ -1,16 +1,19 @@
 import React from "react";
 
 const timeDifference = (firstDate) => {
-  const today = new Date();
-  const timeDifference = Math.floor(
-    (today.getTime() - firstDate.getTime()) / (1000 * 3600 * 24)
+  const secondDate = new Date();
+
+  const timeDifference = Math.abs(
+    Math.floor(
+      (firstDate.getTime() - secondDate.getTime()) / (1000 * 3600 * 24)
+    )
   );
 
   return timeDifference;
 };
 
 export const EventViewHero = ({ event }) => {
-  const daysAgo = timeDifference(event.date);
+  const daysAgo = timeDifference(event["date"]);
 
   return (
     <div>
@@ -23,7 +26,7 @@ export const EventViewHero = ({ event }) => {
           <p id="attendance">attended the event</p>
         </div>
         <div>
-          <div id="dateEvent">Posted ${daysAgo} days ago</div>
+          <div id="dateEvent">Posted {daysAgo} days ago</div>
         </div>
       </div>
     </div>

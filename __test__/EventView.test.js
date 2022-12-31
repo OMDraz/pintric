@@ -12,7 +12,7 @@ describe("Event View Hero", () => {
       guests: ["Kareem", "Reem", "Ahmed"],
     },
     location: "Markham",
-    date: "2022-12-01",
+    date: new Date(2022, 11, 1),
   };
 
   // reset the container
