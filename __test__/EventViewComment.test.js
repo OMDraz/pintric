@@ -7,27 +7,9 @@ import {
 } from "./reactTestExtensions";
 import { act } from "react-dom/test-utils";
 import { EventViewComment } from "../src/EventView/EventViewComment";
+import { data } from "./testData/comments";
 
 describe("Comment Section", () => {
-  const comment = {
-    firstName: "",
-    lastName: "",
-    date: "",
-    commentText: "",
-    commentLikes: "",
-    subComments: [
-      {
-        firstName: "",
-        lastName: "",
-        commentText: "",
-      },
-      {
-        firstName: "",
-        lastName: "",
-        commentText: "",
-      },
-    ],
-  };
   const eventViewComment = () => element("#eventViewComment");
 
   beforeEach(() => {
@@ -39,8 +21,8 @@ describe("Comment Section", () => {
     expect(eventViewComment()).not.toBeNull();
   });
   it("renders a comment with a first name", () => {
-    const comment = { firstName: "Ashley" };
+    const comment = data["comments"][0]["firstName"];
     render(<EventViewComment comment={comment} />);
-    expect(appointmentTable()).toContainText("Ashley");
+    expect(eventViewComment()).toContainText("Ashley");
   });
 });

@@ -1,3 +1,5 @@
 import React from "react";
 
-export const EventViewComment = () => <div id="eventViewComment">hello</div>;
+export const EventViewComment = () => {
+  return <div id="eventViewComment"></div>;
+};
