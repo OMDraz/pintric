@@ -49,6 +49,15 @@
     "testEnvironment": "jsdom",
     "globals": {
       "IS_REACT_ACT_ENVIRONMENT": true
-    }
+    },
+    "setupFilesAfterEnv": [
+      "./test/domMatchers.js",
+      "./test/globals.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/server/"
+    ],
+    "restoreMocks": true
   }
 }
