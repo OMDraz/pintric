@@ -1,8 +1,8 @@
 import React from "react";
+import { eventData } from "../dummyData/events";
 
 export const timeDifference = (firstDate) => {
   const secondDate = new Date();
-
   const timeDifference = Math.abs(
     Math.floor(
       (firstDate.getTime() - secondDate.getTime()) / (1000 * 3600 * 24)
@@ -12,33 +12,33 @@ export const timeDifference = (firstDate) => {
   return timeDifference;
 };
 
-export const eventData = {
-  events: [
-    {
-      name: "John",
-      host: "Doe",
-      imgURL: "01/01/2022",
-      date: "This is a great article!",
-      attendees: [],
-    },
-  ],
+export const nameConcatenator = (array) => {
+  return array.reduce((acc, curr, index) => {
+    if (index === array.length - 1) {
+      return acc + " and " + curr;
+    } else {
+      return acc + ", " + curr;
+    }
+  });
 };
 
 export const EventViewHero = (event) => {
-  const { name, host, imgURL, date, attendees } = eventData["events"][0];
-  console.log(name);
+  const { name, attendees, location, date, urlIMG } =
+    event["event"]["events"][0];
   const daysAgo = timeDifference(date);
+  const finalizedNames = nameConcatenator(attendees["guests"]);
 
   return (
     <div>
       <div id="eventName">{name}</div>
-      <img id="eventPhoto" src={imgURL} alt="" />
+      <img id="eventPhoto" src={urlIMG} alt="" />
       <div>
         <div>
-          <img id="hostPhoto" src={imgURL} alt="" />
-          <img id="guestPhoto" src={imgURL} alt="" />
-          <p id="attendance">Hosted by {host}</p>
-          <p id="attendance">{attendees} attended the event</p>
+          <img id="hostPhoto" src={urlIMG} alt="" />
+          <img id="guestPhoto" src={urlIMG} alt="" />
+          <p id="hostAttendance">Hosted by {attendees["host"]}</p>
+          <p id="guestAttendance">{finalizedNames} attended the event</p>
+          <p id="location">{location}</p>
         </div>
         <div>
           <div id="dateEvent">Posted {daysAgo} days ago</div>
@@ -46,4 +46,8 @@ export const EventViewHero = (event) => {
       </div>
     </div>
   );
+};
+
+EventViewHero.defaultProps = {
+  eventData,
 };
