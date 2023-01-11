@@ -66,7 +66,7 @@ describe("Event View Hero", () => {
     render(<EventViewHero event={eventData} />);
 
     expect(document.querySelector("p#guestAttendance").textContent).toContain(
-      "Kareem, Reem and Ahmed attended the event"
+      "Maria Rodriguez, John Smith and Jessica Kim attended the event"
     );
   });
   it("has a date stamp that is to the right of the guest photos", () => {
