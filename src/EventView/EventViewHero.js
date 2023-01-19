@@ -39,22 +39,31 @@ export const EventViewHero = (event) => {
   };
 
   return (
-    <div className="border-solid border-8 border-red-500">
-      <div id="eventName">
+    <div className="border-solid border-2 border-red-500 col-start-2 col-end-6 row-start-1 row-end-5">
+      <div className="flex justify-center" id="eventName">
         <p className="text-green-500">{name}</p>
       </div>
       <div>
-        <img id="eventPhoto" src={urlIMG} alt="" class="w-1/2 h-1/2" />
+        <img
+          className="flex justify-center"
+          id="eventPhoto"
+          src={urlIMG}
+          alt=""
+          class="w-1/2 h-1/2"
+        />
       </div>
       <div>
         <div>
-          <div class="h-70 w-80">
+          <div className="flex justify-start content-end">
             <img
               id="hostPhoto"
               src={pullURLs(hostID)}
               alt=""
-              class="rounded-full"
+              className="rounded-full h-10 w-10"
             />
+            <p className="self-end" id="hostAttendance">
+              Hosted by {attendees["host"]}
+            </p>
           </div>
           {guestIds.map((guestID) => {
             const guestIMG = pullURLs(guestID);
@@ -70,7 +79,6 @@ export const EventViewHero = (event) => {
               </div>
             );
           })}
-          <p id="hostAttendance">Hosted by {attendees["host"]}</p>
           <p id="guestAttendance">{finalizedNames} attended the event</p>
           <p id="location">{location}</p>
         </div>
