@@ -39,9 +39,9 @@ export const EventViewHero = (event) => {
   };
 
   return (
-    <div className="border-solid border-2 border-red-500 col-start-2 col-end-6 row-start-1 row-end-5">
+    <div className="bg-slate-300 border-solid border-2 border-sky-500 col-start-2 col-end-6 row-start-1 row-end-5">
       <div className="flex justify-center" id="eventName">
-        <p className="text-green-500">{name}</p>
+        <p className="font-serif text-decoration-solid">{name}</p>
       </div>
       <div>
         <img
@@ -49,7 +49,7 @@ export const EventViewHero = (event) => {
           id="eventPhoto"
           src={urlIMG}
           alt=""
-          class="w-1/2 h-1/2"
+          class="object-contain"
         />
       </div>
       <div>
@@ -59,9 +59,9 @@ export const EventViewHero = (event) => {
               id="hostPhoto"
               src={pullURLs(hostID)}
               alt=""
-              className="rounded-full h-10 w-10"
+              className="rounded-full h-6 w-6"
             />
-            <p className="self-end" id="hostAttendance">
+            <p className="font-serif self-end" id="hostAttendance">
               Hosted by {attendees["host"]}
             </p>
           </div>
@@ -74,16 +74,22 @@ export const EventViewHero = (event) => {
                   id="guestPhoto"
                   src={guestIMG}
                   alt=""
-                  class="object-fill rounded-full"
+                  class="font-serif object-fill rounded-full"
                 />
               </div>
             );
           })}
-          <p id="guestAttendance">{finalizedNames} attended the event</p>
-          <p id="location">{location}</p>
+          <p id="guestAttendance" class="font-serif ">
+            {finalizedNames} attended the event
+          </p>
+          <p id="location" class="font-serif">
+            {location}
+          </p>
         </div>
         <div>
-          <div id="dateEvent">Posted {daysAgo} days ago</div>
+          <div id="dateEvent" class="font-serif">
+            Posted {daysAgo} days ago
+          </div>
         </div>
       </div>
     </div>
