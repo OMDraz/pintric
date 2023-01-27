@@ -61,7 +61,7 @@ export const EventViewHero = (event) => {
               id="hostPhoto"
               src={pullURLs(hostID)}
               alt=""
-              className="rounded-full h-12 w-12"
+              className="rounded-full h-10 w-10 mr-4 align-center"
             />
             <p className="font-serif self-end" id="hostAttendance">
               Hosted by {attendees["host"]}
@@ -76,13 +76,13 @@ export const EventViewHero = (event) => {
                   id="guestPhoto"
                   src={guestIMG}
                   alt=""
-                  class="font-serif h-12 w-12 mx-4 rounded-full"
+                  class="font-serif h-10 w-10 mr-4 rounded-full"
                 />
               );
             })}
           </div>
           <p id="guestAttendance" class="font-serif ">
-            {finalizedNames} attended the event
+            <b>{finalizedNames}</b> attended the event
           </p>
           <p id="location" class="font-serif">
             {location}
