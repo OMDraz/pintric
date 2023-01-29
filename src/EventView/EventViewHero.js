@@ -41,7 +41,7 @@ export const EventViewHero = (event) => {
   };
 
   return (
-    <div className="bg-slate-300 border-solid border-2 border-sky-500 col-start-2 col-end-6 row-start-1 row-end-5">
+    <div className="bg-slate-300 border-solid border-2 border-sky-500 col-start-1 col-end-5 row-start-1 row-end-5">
       <div className="flex justify-center" id="eventName">
         <p className="font-serif text-decoration-solid">{name}</p>
       </div>

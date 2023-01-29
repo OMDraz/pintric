@@ -1,7 +1,7 @@
 export const eventData = {
   events: [
     {
-      name: "Travelling to Columbia!!!!",
+      name: "Event #2",
       attendees: {
         host: "Omar",
         hostID: 1,
