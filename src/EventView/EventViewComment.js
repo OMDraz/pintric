@@ -1,24 +1,36 @@
 import React from "react";
 import { useState } from "react";
-import { data } from "../../test/testData/comments";
+import { commentData } from "../dummyData/comments";
 
-export const EventViewComment = (commentData) => {
-  const [comments, setComments] = useState(commentData);
-  const { firstName, lastName, date, commentText, commentLikes } =
-    comments["comment"]["comments"][0];
+export const EventViewComment = ({ commentData }) => {
+  const commentsArray = commentData.comments;
+  const [comments, setComments] = useState(commentsArray);
 
   return (
-    <div id="eventViewComment">
-      <div id="eventViewCommentfirstName">{firstName}</div>
-      <div id="eventViewCommentlastName">{lastName}</div>
-      <div id="eventViewCommentdate">{date}</div>
-      <div id="eventViewCommentcommentText">{commentText}</div>
-      <div id="eventViewCommentcommentLikes">{commentLikes}</div>
-      <div></div>
+    <div>
+      {comments.map(
+        ({ firstName, lastName, date, commentText, commentLikes }) => {
+          return (
+            <div id="eventViewComment" className="text-sm py-6">
+              <div>
+                <div id="eventViewCommentcommentText">{commentText}</div>
+              </div>
+              <div>
+                <div id="eventViewCommentfirstName">{firstName}</div>
+                <div id="eventViewCommentlastName">{lastName}</div>
+              </div>
+              <div>
+                <div id="eventViewCommentdate">{date}</div>
+                <div id="eventViewCommentcommentLikes">{commentLikes}</div>
+              </div>
+            </div>
+          );
+        }
+      )}
     </div>
   );
 };
 
 EventViewComment.defaultProps = {
-  data,
+  commentData,
 };

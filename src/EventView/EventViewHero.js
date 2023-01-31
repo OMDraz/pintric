@@ -46,11 +46,10 @@ export const EventViewHero = (event) => {
       </div>
       <div>
         <img
-          className="flex justify-center"
+          className="flex justify-center object-contain"
           id="eventPhoto"
           src={urlIMG}
           alt=""
-          className="object-contain"
         />
       </div>
       <div>
@@ -69,7 +68,7 @@ export const EventViewHero = (event) => {
           {guestIds.map((guestID) => {
             const guestIMG = pullURLs(guestID);
             return (
-              <div class="h-1 w-1">
+              <div key={guestID} className="h-1 w-1">
                 <img
                   key={guestID}
                   id="guestPhoto"
@@ -80,15 +79,15 @@ export const EventViewHero = (event) => {
               </div>
             );
           })}
-          <p id="guestAttendance" class="font-serif ">
+          <p id="guestAttendance" className="font-serif ">
             {finalizedNames} attended the event
           </p>
-          <p id="location" class="font-serif">
+          <p id="location" className="font-serif">
             {location}
           </p>
         </div>
         <div>
-          <div id="dateEvent" class="font-serif">
+          <div id="dateEvent" className="font-serif">
             Posted {daysAgo} days ago
           </div>
         </div>
