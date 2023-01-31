@@ -2,7 +2,6 @@
 
 import React from "react";
 import { eventData } from "../dummyData/events";
-import { useEffect } from "react";
 import { consumerData } from "../dummyData/consumer";
 
 export const timeDifference = (firstDate) => {
@@ -41,7 +40,7 @@ export const EventViewHero = (event) => {
   };
 
   return (
-    <div className="bg-slate-300 border-solid border-2 border-sky-500 col-start-1 col-end-5 row-start-1 row-end-5">
+    <div className="bg-slate-300 border-solid border-2 border-sky-500 col-start-2 col-end-6 row-start-1 row-end-5">
       <div className="flex justify-center" id="eventName">
         <p className="font-serif text-decoration-solid">{name}</p>
       </div>
@@ -51,7 +50,7 @@ export const EventViewHero = (event) => {
           id="eventPhoto"
           src={urlIMG}
           alt=""
-          class="object-contain"
+          className="object-contain"
         />
       </div>
       <div>
@@ -61,28 +60,28 @@ export const EventViewHero = (event) => {
               id="hostPhoto"
               src={pullURLs(hostID)}
               alt=""
-              className="rounded-full h-10 w-10 mr-4 self-center"
+              className="rounded-full h-6 w-6"
             />
-            <p className="font-serif self-center" id="hostAttendance">
+            <p className="font-serif self-end" id="hostAttendance">
               Hosted by {attendees["host"]}
             </p>
           </div>
-          <div class="flex content-end my-5">
-            {guestIds.map((guestID) => {
-              const guestIMG = pullURLs(guestID);
-              return (
+          {guestIds.map((guestID) => {
+            const guestIMG = pullURLs(guestID);
+            return (
+              <div class="h-1 w-1">
                 <img
                   key={guestID}
                   id="guestPhoto"
                   src={guestIMG}
                   alt=""
-                  class="font-serif h-10 w-10 mr-4 rounded-full"
+                  className="font-serif object-fill rounded-full"
                 />
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
           <p id="guestAttendance" class="font-serif ">
-            <b>{finalizedNames}</b> attended the event
+            {finalizedNames} attended the event
           </p>
           <p id="location" class="font-serif">
             {location}
