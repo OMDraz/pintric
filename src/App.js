@@ -10,7 +10,7 @@ export const App = () => {
         <link href="./assets/main.css" rel="stylesheet" />
       </head>
       <body>
-        <div className="grid grid-cols-6 grid-rows-3 gap-2">
+        <div className="grid grid-cols-6 grid-rows-3 gap-">
           <EventViewHero event={eventData} />;
           <EventViewSideBar />
         </div>
